@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php
-include 'templates/header.php';
-?>
+
+<head>
+  <?php
+  include 'templates/header.php';
+  ?>
+  <title>JAJAX Restaurants</title>
+</head>
 
 <body>
 
-  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint quam sapiente laboriosam magnam officiis. Praesentium harum dolorum laudantium inventore libero debitis perferendis natus! Voluptatibus nesciunt corporis, illo doloremque officiis provident!
+  <nav class="navbar navbar-dark bg-dark">
+    <a href="pages/catalogo.php" class="nav-link" style="color: #FFFFFF;">Catálogo</a>
+  </nav>
+
 
   <?php
   include 'templates/footer.php';
