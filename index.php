@@ -14,6 +14,10 @@
     <a href="pages/catalogo.php" class="nav-link" style="color: #FFFFFF;">Catálogo</a>
   </nav>
 
+  <nav class="navbar navbar-dark bg-dark">
+    <a href="pages/detalles.php" class="nav-link" style="color: #FFFFFF;">Detalles (Temporal)</a>
+  </nav>
+
 
   <?php
   include 'templates/footer.php';
