@@ -1,0 +1,126 @@
+
+.mainDiv {
+    height: 100vh;
+    padding: 2%;
+    background-color: #f4f4f4;
+    color: red;
+    display: flex;
+}
+
+.mainCard {
+    display: flex;
+    padding: 1%;
+    justify-content: space-between;
+}
+
+.leftSubDiv {
+    width: 49%;
+    height: 100%;
+    background-color: white;
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.rightSubDiv {
+    width: 49%;
+    height: 100%; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mainImage {
+    max-width: 100%;
+    object-fit: contain;
+    padding: 10px;
+}
+
+.miniImage {
+    max-width: 100%;
+    object-fit: contain;
+    border: solid black 1px;
+}
+
+.miniImage:hover {
+    border: solid white 1px;
+}
+
+.mainImageContainer {
+    width: 70%;   
+    display: flex;
+}
+
+.miniImagesContainer {
+    width: 30%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    overflow-x: auto;
+}
+
+.infoCard {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 90%;
+    height: 45%;
+    background-color: white;
+    border-radius: 16px;
+    padding: 4%;
+}
+
+.mini_image_container { 
+    width: 100%;
+    height: 80%;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.mainTitle {
+    color: black;
+    font-size: 30px;
+    padding: 10px;
+}
+
+.subTitle {
+    margin-top: 20px;
+    color: #606975;
+    font-weight: bold;
+}
+
+.info {
+    color: #616A76;
+    max-height: 50px;
+    text-overflow:clip ;
+    overflow: hidden;
+}
+
+.map {
+    height: 45%;
+    width: 90%;
+    background-color: #F5F6F8;
+    border-radius: 16px;
+}
+
+.divider {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    justify-content: space-evenly;
+}
+
+.dividerContainer {
+    display: flex;
+    height: 100%;
+}
+
+.bundle {
+    display: flex;    
+    flex-direction: column;
+}
