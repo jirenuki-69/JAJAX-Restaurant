@@ -10,10 +10,9 @@
 
 <body>
 
-  <nav class="navbar navbar-dark bg-dark">
-    <a href="pages/catalogo.php" class="nav-link" style="color: #FFFFFF;">Catálogo</a>
-  </nav>
-
+  <div class="root-container">
+    <div class="banner"></div>
+  </div>
 
   <?php
   include 'templates/footer.php';
