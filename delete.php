@@ -1,5 +1,5 @@
 <?php
-    include "connection.php";
+    include "./utils/connection.php";
     $obj =  new connection();
     $conn = $obj->connection_db();
 
@@ -15,7 +15,7 @@
     } catch (\Throwable $th) {
         $delete = false;
     }
-    header("location: index.php");
+    header("location: pages/catalogo.php");
 
 
 ?>

@@ -26,12 +26,12 @@
         <button class="btn-search"><i class="fas fa-search"></i></button>
         <input id="catalog-search" type="text" class="input-search" placeholder="Type to Search...">
       </div>
-      <button id="btn-agregar" type="button" class="custom-button">
+      <a href="./guardar.php" id="btn-agregar" type="button" class="custom-button">
         <span class="button-text">Agregar</span>
         <span class="button-icon">
           <ion-icon name="add-outline"></ion-icon>
         </span>
-      </button>
+      </a>
     </div>
 
     <div class="cards-container">
@@ -47,9 +47,9 @@
           <p class="card-title"><?php echo $row["name"] ?></p>
           <p class="card-desc"><?php echo $row["description"] ?></p>
           <div class="card-buttons">
-            <button id="btn-more-info" class="btn btn-primary">Detalles</button>
-            <button id="btn-edit" class="btn btn-success">Editar</button>
-            <a href="delete.php?id_user=<?php echo $row['id']?>" id="btn-delete" style="display: flex; align-items: center;" class="btn btn-danger">Eliminar</a>
+            <button href="./detalles.php?id_user=<?php echo $row['id']?>" id="btn-more-info" style="display: flex; align-items: center;" class="btn btn-primary">Detalles</button>
+            <a href="./form_update.php?id_user=<?php echo $row['id']?>" id="btn-edit" style="display: flex; align-items: center;"  class="btn btn-success">Editar</a>
+            <a href="../delete.php?id_user=<?php echo $row['id']?>" id="btn-delete" style="display: flex; align-items: center;" class="btn btn-danger">Eliminar</a>
           </div>
         </div>
       </div>
