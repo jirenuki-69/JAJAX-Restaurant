@@ -24,7 +24,7 @@
     <div class="catalog-header">
       <div class="search-box">
         <button class="btn-search"><i class="fas fa-search"></i></button>
-        <input id="catalog-search" type="text" class="input-search" placeholder="Type to Search...">
+        <input id="catalog-search" type="text" class="input-search" placeholder="Type to Search..." onchange="Search(event)">
       </div>
       <a href="./guardar.php" id="btn-agregar" type="button" class="custom-button">
         <span class="button-text">Agregar</span>
@@ -34,7 +34,7 @@
       </a>
     </div>
 
-    <div class="cards-container">
+    <div class="cards-container" id="cards-container">
       <?php 
         while($row = $result->fetch_assoc()) {
             echo '<script>';
@@ -47,7 +47,7 @@
           <p class="card-title"><?php echo $row["name"] ?></p>
           <p class="card-desc"><?php echo $row["description"] ?></p>
           <div class="card-buttons">
-            <button href="./detalles.php?id_user=<?php echo $row['id']?>" id="btn-more-info" style="display: flex; align-items: center;" class="btn btn-primary">Detalles</button>
+            <a href="./detalles.php?id_user=<?php echo $row['id']?>" id="btn-more-info" style="display: flex; align-items: center;" class="btn btn-primary">Detalles</a>
             <a href="./form_update.php?id_user=<?php echo $row['id']?>" id="btn-edit" style="display: flex; align-items: center;"  class="btn btn-success">Editar</a>
             <a href="../delete.php?id_user=<?php echo $row['id']?>" id="btn-delete" style="display: flex; align-items: center;" class="btn btn-danger">Eliminar</a>
           </div>
@@ -57,64 +57,15 @@
       <?php
         }
       ?>
-      <!-- <div class="my-card">
-        <img class="card-img" src="../assets/placeholder_1.jpg" alt="Image">
-        <div class="card-info">
-          <p class="card-title">Nombre del Restaurante</p>
-          <p class="card-desc">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequuntur nam illum perspiciatis magni sunt quo, assumenda ducimus obcaecati? Vero, a soluta? Itaque fugiat minus cum exercitationem laboriosam, quae ipsum repellat?</p>
-          <div class="card-buttons">
-            <button id="btn-more-info" class="btn btn-primary">Detalles</button>
-            <button id="btn-edit" class="btn btn-success">Editar</button>
-            <button id="btn-delete" class="btn btn-danger">Eliminar</button>
-          </div>
-        </div>
-      </div>
-      <div class="my-card">
-        <img class="card-img" src="../assets/placeholder_1.jpg" alt="Image">
-        <div class="card-info">
-          <p class="card-title">Nombre del Restaurante</p>
-          <p class="card-desc">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequuntur nam illum perspiciatis magni sunt quo, assumenda ducimus obcaecati? Vero, a soluta? Itaque fugiat minus cum exercitationem laboriosam, quae ipsum repellat?</p>
-          <div class="card-buttons">
-            <button id="btn-more-info" class="btn btn-primary">Detalles</button>
-            <button id="btn-edit" class="btn btn-success">Editar</button>
-            <button id="btn-delete" class="btn btn-danger">Eliminar</button>
-          </div>
-        </div>
-      </div>
-      <div class="my-card">
-        <img class="card-img" src="../assets/placeholder_1.jpg" alt="Image">
-        <div class="card-info">
-          <p class="card-title">Nombre del Restaurante</p>
-          <p class="card-desc">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequuntur nam illum perspiciatis magni sunt quo, assumenda ducimus obcaecati? Vero, a soluta? Itaque fugiat minus cum exercitationem laboriosam, quae ipsum repellat?</p>
-          <div class="card-buttons">
-            <button id="btn-more-info" class="btn btn-primary">Detalles</button>
-            <button id="btn-edit" class="btn btn-success">Editar</button>
-            <button id="btn-delete" class="btn btn-danger">Eliminar</button>
-          </div>
-        </div>
-      </div>
-      <div class="my-card">
-        <img class="card-img" src="../assets/placeholder_1.jpg" alt="Image">
-        <div class="card-info">
-          <p class="card-title">Nombre del Restaurante</p>
-          <p class="card-desc">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequuntur nam illum perspiciatis magni sunt quo, assumenda ducimus obcaecati? Vero, a soluta? Itaque fugiat minus cum exercitationem laboriosam, quae ipsum repellat?</p>
-          <div class="card-buttons">
-            <button id="btn-more-info" class="btn btn-primary">Detalles</button>
-            <button id="btn-edit" class="btn btn-success">Editar</button>
-            <button id="btn-delete" class="btn btn-danger">Eliminar</button>
-          </div>
-        </div>
-      </div> -->
-
     </div>
   </div>
 
   <template id="catalog-template">
     <div class="my-card">
       <img class="card-img" src="../assets/placeholder_1.jpg" alt="Image">
-      <div class="card-info">
-        <p class="card-title">Nombre del Restaurante</p>
-        <p class="card-desc">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequuntur nam illum perspiciatis magni sunt quo, assumenda ducimus obcaecati? Vero, a soluta? Itaque fugiat minus cum exercitationem laboriosam, quae ipsum repellat?</p>
+      <div class="card-info" id="card-info">
+        <p class="card-title" id="card-title">Nombre del Restaurante</p>
+        <p class="card-desc" id="card-desc">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequuntur nam illum perspiciatis magni sunt quo, assumenda ducimus obcaecati? Vero, a soluta? Itaque fugiat minus cum exercitationem laboriosam, quae ipsum repellat?</p>
         <div class="card-buttons">
           <button id="btn-more-info" class="btn btn-primary">Detalles</button>
           <button id="btn-edit" class="btn btn-success">Editar</button>
@@ -130,5 +81,5 @@ include '../templates/footer.php';
 ?>
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
+<script src="../js/script.js"></script>
 </html>

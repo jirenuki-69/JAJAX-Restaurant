@@ -12,54 +12,46 @@
 
 <body class="backGround">
     <?php 
-        $imgPlaceHolder = "https://www.guioteca.com/mitos-y-enigmas/files/2016/10/DragonRed.jpg";
-        $imageData = array($imgPlaceHolder, $imgPlaceHolder, $imgPlaceHolder, $imgPlaceHolder, $imgPlaceHolder, $imgPlaceHolder, $imgPlaceHolder, $imgPlaceHolder, $imgPlaceHolder);
-        $imageIndex = 0;
+        // $imgPlaceHolder = "https://www.guioteca.com/mitos-y-enigmas/files/2016/10/DragonRed.jpg";
+        // $imageData = array($imgPlaceHolder, $imgPlaceHolder, $imgPlaceHolder, $imgPlaceHolder, $imgPlaceHolder, $imgPlaceHolder, $imgPlaceHolder, $imgPlaceHolder, $imgPlaceHolder);
+        // $imageIndex = 0;
 
         function changeImage($index){
             $imageIndex = $index;
+        }
+
+        include "../utils/connection.php";
+        $id_user = $_GET["id_user"];
+        $obj = new connection();
+        $conn =  $obj->connection_db();
+
+        $sql = "select * from restaurantes where id=".$id_user;
+        $result = $conn->query($sql);  
+        $data  =  $result->fetch_assoc();
+    
+        if (isset($_GET["update"])) {
+            echo "<h4 class='text-danger text-center'>No se ha podido modificar el usuario</h4>";
         }
     ?>
     <div class="mainDiv">
         <div class="mainCard">
             <div class="leftSubDiv shadow p-3 bg-body rounded">
-                <div class="miniImagesContainer">
-                    <?php 
-                        foreach($imageData as $key=>$val) {
-                    ?>
-                        <div class='mini_image_container' onclick="clickImage(<?php echo $key ?>)">
-                            <img class="miniImage" src="<?php echo $val ?>" alt="">
-                        </div>
-                    <?php 
-                        }
-                    ?>
-                </div>
                 <div class="mainImageContainer">
-                    <img class="mainImage" src="<?php echo $val ?>" alt=""> 
+                    <img class="mainImage" src="<?php echo $data['image'] ?>" alt=""> 
                 </div>
             </div>
             <div class="rightSubDiv">
                 <div class="infoCard shadow p-3 bg-body rounded">
-                    <span class="mainTitle">Nombre de la sucursal</span>
+                    <span class="mainTitle"><?php echo $data['name'] ?></span>
                     <div class="dividerContainer">
                         <div class="divider">
                             <div class="bundle">
                             <span class="subTitle">Direccion</span>
-                            <span class="info">Calle 20 C #304 x21 Diag y 19 A Diagonal, Jardines del norte aaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaa</span>
+                            <span class="info"><?php echo $data['description'] ?></span>
                             </div>
                             <div class="bundle">
-                                <span class="subTitle">Puntuación</span>
-                                <span class="info">5</span>
-                            </div>
-                        </div>
-                        <div class="divider">
-                            <div class="bundle">
-                                <span class="subTitle">Telefono</span>
-                                <span class="info">9992570396</span>
-                            </div>
-                            <div class="bundle">
-                                <span class="subTitle">Horario</span>
-                                <span class="info">9:00 am - 12:00 pm</span>
+                                <span class="subTitle">Location</span>
+                                <span class="info"><?php echo $data['name'] ?></span>
                             </div>
                         </div>
                     </div>
@@ -75,5 +67,6 @@
 include '../templates/footer.php';
 ?>
 <script type="text/javascript" src="https://maps.google.com/maps/api/js?key="></script> 
+<script type="text/javascript" src="../js/map.js"></script> 
 
 </html>

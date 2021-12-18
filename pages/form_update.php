@@ -26,10 +26,6 @@
     if (isset($_GET["update"])) {
         echo "<h4 class='text-danger text-center'>No se ha podido modificar el usuario</h4>";
     }
-
-    echo '<script>';
-    echo 'console.log('. json_encode( $data) .')';
-    echo '</script>';
     ?>
     <div class="container mx-auto">
         <h1 class="text-center">Actualizar Restaurante</h1>
